@@ -25,3 +25,19 @@ $(document).ready(function(){
                      $("#page-content-wrapper").load("acerca.html");
                  });
             });
+
+function timer(inicial_count)
+{
+  var count=inicial_count;
+
+  var counter=setInterval(timer, 1000); //1000 will  run it every 1 second
+  count=count-1;
+  if (count <= 0)
+  {
+     clearInterval(counter);
+     document.getElementById("timer").innerHTML="Bus en la parada, saliendo pronto"; // watch for spelling
+     return;
+  }
+
+ document.getElementById("timer").innerHTML=count + " secs"; // watch for spelling
+}
