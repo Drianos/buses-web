@@ -20,7 +20,7 @@
 
     <!--Leaflet files-->
 	<link rel="stylesheet" href="css/leaflet.css" />
-	
+    <script src="js/leaflet.js"></script>
 	<style>
 		body {
 			padding: 0;
@@ -58,7 +58,6 @@
 	<!-- JavaScript -->
     <script src="js/jquery-2.1.0.min.js"></script>
     <script src="js/bootstrap.js"></script>
-    <script src="js/leaflet.js"></script>
 
 	<script>
 		//Custom JavaScript for the Menu Toggle 
@@ -71,11 +70,6 @@
     	//Map logic
 		var map = L.map('map');
 
-		L.tileLayer('http://{s}.tile.cloudmade.com/API-key/997/256/{z}/{x}/{y}.png', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-    maxZoom: 18
-}).addTo(map);
-		map.locate({enableHighAccuracy:true,timeout:30000, maximumAge:15000, setView: true, maxZoom: 16});
 
 		
 		function onLocationFound(e) {
@@ -93,6 +87,7 @@
 		}
 		map.on('locationerror', onLocationError);
 		
+		map.locate({enableHighAccuracy:true,timeout:30000, maximumAge:15000, setView: true, maxZoom: 16});
 	</script>
 </body>
 
