@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Buses CR</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!--Leaflet files-->
+	<link rel="stylesheet" href="css/leaflet.css" />
+	<script src="js/leaflet.js"></script>
+
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+		}
+		html, body, #map {
+			height: 100%;
+		}
+	</style>
+  </head>
+
+  
+    <div id="wrapper">
+      
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand"><a href="#">Buses CR</a></li>
+          <li><a href="index.html" id="contenido">Próximo Bus</a></li>
+          <li><a href="horarios.html" id="horarios">Horarios</a></li>
+          <li><a href="#" id="paradas">Paradas</a></li>
+          <li><a href="#" id="acerca">Acerca</a></li>
+        </ul>
+      </div>
+  <body>  
+      
+      <!-- Page content -->
+      <div id="page-content-wrapper">
+		<div id="map"></div>
+
+		
+	</div>
+
+	<script>
+		//Custom JavaScript for the Menu Toggle 
+    	$("#menu-toggle").click(function(e) {
+        	e.preventDefault();
+        	$("#wrapper").toggleClass("active");
+    		});
+
+
+    	//Map logic
+		var map = L.map('map');
+
+		L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
+			maxZoom: 18
+		}).addTo(map);
+		
+		map.locate({enableHighAccuracy:true,timeout:30000, maximumAge:15000, setView: true, maxZoom: 16});
+
+		
+		function onLocationFound(e) {
+			var radius = e.accuracy / 2;
+
+			L.marker(e.latlng).addTo(map)
+				.bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+			L.circle(e.latlng, radius).addTo(map);
+		}
+		map.on('locationfound', onLocationFound);
+
+		function onLocationError(e) {
+			alert(e.message);
+		}
+		map.on('locationerror', onLocationError);
+		
+	</script>
+</body>
+
+
+</html>
+
