@@ -1,7 +1,8 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -14,11 +15,11 @@
 
     <!-- Add custom CSS here -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
-  </head>
-
-  
+</head>
+    
+<body>
     <div id="wrapper">
       
       <!-- Sidebar -->
@@ -31,8 +32,7 @@
           <li><a href="#" id="acerca">Acerca</a></li>
         </ul>
       </div>
-    </div>
-  <body>  
+ 
       
       <!-- Page content -->
     <div id="page-content-wrapper">
@@ -130,14 +130,20 @@
             </div>
           </div>
         </div>
-      </div>  
+      </div> 
+    </div> 
     <!-- JavaScript -->
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
 
     
     <script>
-    
+    //animation menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+    });
+
     //Google anaylitics
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

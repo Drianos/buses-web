@@ -16,7 +16,7 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
 
   </head>
-
+  <body> 
   
     <div id="wrapper">
       
@@ -30,7 +30,7 @@
           <li><a href="#" id="acerca">Acerca</a></li>
         </ul>
       </div>
-  <body>  
+ 
       
       <!-- Page content -->
       <div id="page-content-wrapper">
@@ -180,9 +180,19 @@
 
           </div>
         </div>
-      </div>  
+      </div>
+    </div>  
     <!-- JavaScript -->
-    <script src="js/jquery.js"></script>
+    <script src="js/jquery-1.10.2.js"></script>
     <script src="js/bootstrap.js"></script>
-  </body>
+
+    <!-- Custom JavaScript for the Menu Toggle -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+    });
+    </script>
+</body>
+
 </html>
